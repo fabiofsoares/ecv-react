@@ -1,0 +1,35 @@
+.cook {
+    display: inline-block;
+    border: 5px solid #c0392b;
+    border-radius: 5px;
+    margin: 1% 2%;
+    padding: 10px 15px;
+    width: 150px;
+    text-align: center;
+    background-color : #e74c3c;
+    color: #ecf0f1;
+    transition: all 0.5s ease-in;
+  }
+  .cook.ready{
+    background-color : #2ecc71;
+    border-color: #27ae60;
+    color: #000;
+  }
+  .cook h2 {
+    text-transform: uppercase;    
+  }
+  .cook .total {
+    margin-top: 5px;
+    font-size: 10px;  
+    padding: 5px 0;
+    background-color: #d35400;
+    transition: all 0.5s ease-in;
+  }
+  .cook.ready .total {
+    background-color: #1abc9c;
+  }
+  .cook .timing {
+    margin-top: 15px;
+    font-size: 40px;
+    color: #000;
+  }
