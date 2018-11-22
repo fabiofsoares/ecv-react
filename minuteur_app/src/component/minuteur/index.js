@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styles from './style.css'
+import icon_play from '../../assets/img/icons/play.png';
+import icon_pause from '../../assets/img/icons/pause.png';
+import icon_stop from '../../assets/img/icons/stop.png';
+import icon_replay from '../../assets/img/icons/replay.png';
 
 class Minuteur extends Component {
     constructor(props){
@@ -65,10 +69,10 @@ class Minuteur extends Component {
                 <h2>{ this.props.ing }</h2>
                 <div className="total">Temps de Cuisson <br></br> <b>{(this.props.min < 10 ? '0' + this.props.min : this.props.min) + ':' + (this.props.sec < 10 ? '0' + this.props.sec : this.props.sec)}</b></div>
                 <div className="players">
-                    <button onClick={this.start.bind(this)}>START</button>
-                    <button onClick={this.restart.bind(this)}>RESTART</button>
-                    <button onClick={this.pause.bind(this)}>PAUSE</button>
-                    <button onClick={this.stop.bind(this)}>STOP</button>
+                    <button onClick={this.start.bind(this)}><img src={ icon_play  } /></button>
+                    <button onClick={this.restart.bind(this)}><img src={ icon_replay  }/></button>
+                    <button onClick={this.pause.bind(this)}><img src={ icon_pause  }/></button>
+                    <button onClick={this.stop.bind(this)}><img src={ icon_stop  }/></button>
                 </div>
                 <div className="timing">
                     { this.state.ready ? 'PRÊT' : (minute + ':' + seconde)}

@@ -33,3 +33,21 @@
     font-size: 40px;
     color: #000;
 }
+.cook .players {
+    margin-top: 10px;
+}
+.cook .players button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #c6c6c6;
+    margin: 0 2px;
+    border: 2px solid #505050;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cook .players button img {
+    transform: translate(-1px, 2px);
+    width: 15px;
+}
