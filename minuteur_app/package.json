@@ -18,7 +18,9 @@
   },
   "packagerOpts": {
     "projectRoots": "",
-    "assetExts": ["ttf"],
+    "assetExts": [
+      "ttf"
+    ],
     "config": "rn-cli.config.js"
   },
   "browserslist": [

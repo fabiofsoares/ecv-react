@@ -14,16 +14,24 @@ class Add extends Component {
       min: parseInt(this.refs.min.value),
       sec: parseInt(this.refs.sec.value)
     }
-    this.props.items(newIng)    
+    this.props.items(newIng)
+    this.refs.ing.value = '';    
+    this.refs.min.value = '';    
+    this.refs.sec.value = '';    
   }
   render() {
-    return (
+      return (
       <div className={ styles.component }>
         <div className="add">
-          <input type="text" ref="ing" placeholder="ingredient"/>
-          <input type="text" ref="min" placeholder="min"/>
-          <input type="text" ref="sec" placeholder="sec"/>
-          <button onClick={ this.add.bind(this) }>ADD</button>
+          <h2>-- NEW --</h2>
+          <div className="input-container">
+              <input type="text" ref="ing" placeholder="ingredient" className="ing"/>
+          </div>
+          <div className="input-container">
+              <input type="text" ref="min" placeholder="min" className="time min"/>
+              <input type="text" ref="sec" placeholder="sec" className="time sec"/>
+          </div>          
+          <button onClick={ this.add.bind(this) }>+</button>
         </div>
       </div>
     );

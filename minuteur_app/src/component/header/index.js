@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <div className={ styles.component }>
-        Minuteur | Fabio
+        <h1>Minuteur | Fabio</h1>
       </div>
     );
   }

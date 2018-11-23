@@ -11,7 +11,8 @@ class Minuteur extends Component {
         this.state = {
             sec : this.props.sec,
             min : this.props.min,
-            ready: false
+            ready: false,
+            status: ''
         }
     }
     timing(){
@@ -36,6 +37,9 @@ class Minuteur extends Component {
     }
     
     start(){
+        this.setState({
+            status: 'play'
+        })
         this.time = setInterval( () => this.timing(), 1000)
     }
 
@@ -43,19 +47,24 @@ class Minuteur extends Component {
         clearInterval(this.time)
         this.setState({
             sec : this.props.sec,
-            min : this.props.min
+            min : this.props.min,
+            status: 'play'
         })
         this.time = setInterval( () => this.timing(), 1000)
     }
 
     pause(){
         clearInterval(this.time)
+        this.setState({
+            status: 'pause'
+        })
     }
 
     stop(){
         clearInterval(this.time)
         this.setState({
-            ready : true          
+            ready : true,
+            status: 'stop'          
         })
     }
 
@@ -65,7 +74,7 @@ class Minuteur extends Component {
         
       return (
         <div className={ styles.component } >  
-            <div className={this.state.ready ? 'cook ready' :  'cook'}>
+            <div className={'cook ' + this.state.status }>
                 <h2>{ this.props.ing }</h2>
                 <div className="total">Temps de Cuisson <br></br> <b>{(this.props.min < 10 ? '0' + this.props.min : this.props.min) + ':' + (this.props.sec < 10 ? '0' + this.props.sec : this.props.sec)}</b></div>
                 <div className="players">

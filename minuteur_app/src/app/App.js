@@ -30,9 +30,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />        
-        { minuteur }        
-        <Add items={ this.add.bind(this) } />
+        <Header />
+        <main>        
+          { minuteur }        
+          <Add items={ this.add.bind(this) } />
+        </main>
       </div>
     );
   }
