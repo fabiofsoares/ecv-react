@@ -10,8 +10,7 @@ class Minuteur extends Component {
         super(props)
         this.state = {
             sec : this.props.sec,
-            min : this.props.min,
-            ready: false,
+            min : this.props.min,            
             status: ''
         }
     }
@@ -31,7 +30,7 @@ class Minuteur extends Component {
         } else {
             clearInterval(this.time)
             this.setState({
-                ready : true          
+                status: 'stop'          
             })
         }
     }
@@ -62,8 +61,7 @@ class Minuteur extends Component {
 
     stop(){
         clearInterval(this.time)
-        this.setState({
-            ready : true,
+        this.setState({           
             status: 'stop'          
         })
     }
@@ -84,7 +82,7 @@ class Minuteur extends Component {
                     <button onClick={this.stop.bind(this)}><img src={ icon_stop  }/></button>
                 </div>
                 <div className="timing">
-                    { this.state.ready ? 'PRÊT' : (minute + ':' + seconde)}
+                    { this.state.status === 'stop' ? 'PRÊT' : (minute + ':' + seconde)}
                 </div>
             </div>
         </div>          

@@ -16,20 +16,31 @@ class Add extends Component {
     }
     this.props.items(newIng)
     this.refs.ing.value = '';    
-    this.refs.min.value = '';    
-    this.refs.sec.value = '';    
+    this.refs.min.value = 0;    
+    this.refs.sec.value = 0;    
+  }
+  options(){
+    let options = []
+    for(let i = 0; i < 60; i ++){
+      options.push(<option>{i}</option>)
+    }
+    return options;
   }
   render() {
+   
       return (
       <div className={ styles.component }>
         <div className="add">
           <h2>-- NEW --</h2>
           <div className="input-container">
-              <input type="text" ref="ing" placeholder="ingredient" className="ing"/>
+              <input type="text" ref="ing" placeholder="Ingredient" className="ing" required/>
           </div>
           <div className="input-container">
-              <input type="text" ref="min" placeholder="min" className="time min"/>
-              <input type="text" ref="sec" placeholder="sec" className="time sec"/>
+              <select ref="min" className="time min">{ this.options() }</select>
+              <span>:</span> 
+              <select ref="sec" className="time sec">{ this.options() }</select>
+              {/* <input type="text" ref="min" placeholder="Min" className="time min"/>
+              <input type="text" ref="sec" placeholder="Sec" className="time sec"/> */}
           </div>          
           <button onClick={ this.add.bind(this) }>+</button>
         </div>

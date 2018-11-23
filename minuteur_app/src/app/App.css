@@ -1,5 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    padding: 0px 15px;
 }
 input:focus {
     outline-width: 0;
