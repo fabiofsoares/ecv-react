@@ -11,11 +11,15 @@ class Steps extends Component {
         }
         
     }
+    submitData = (data) => {
+        console.log(data)         
+    }
+
     render() {
-        console.log(this.props.courant)
+        console.log(this.refs.step_2)        
         let form = ''
         if(this.props.data.form){
-            form = <Form data={this.props.data.form} />
+            form = <Form data={this.props.data.form} ref={ 'step_' + this.state.page } onSubmitStep={ this.submitData }/>
         } 
         return (
             <div className={ this.props.courant === this.props.page ? 'active steps' :'steps'}>

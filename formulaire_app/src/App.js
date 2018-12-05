@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      courant: 0
+      courant: 0,
+      list: []
     }
     this.data = [
           {
@@ -110,7 +111,7 @@ class App extends Component {
 
     let step = this.data.map((item, index) => <Steps page={index} courant={this.state.courant} data={item} />)
    
-    
+    console.log('refs : ', this.refs.step_1)
     return (
       <div className="App">
         { step }

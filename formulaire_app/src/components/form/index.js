@@ -7,47 +7,6 @@ class Form extends Component {
         this.state = {
             inputs : this.props.inputs
         }
-        this.dataForm = [
-            {
-                id:'civilite',
-                type:'select',
-                placeholder:'civilite',
-                inputs : [
-                    {
-                        label : 'celibataire',
-                        name: 'celibataire'
-                    },
-                    {
-                        label : 'marrie',
-                        name: 'marrie'
-                    },
-                    {
-                        label : 'veuf(ve)',
-                        name: 'veuf'
-                    }
-                ]
-            },
-            {
-                id:'nom',
-                type:'text',
-                placeholder:'Nom'                
-            },
-            {
-                id:'prenom',
-                type:'text',
-                placeholder:'Prenom'                
-            },
-            {
-                id:'email',
-                type:'email',
-                placeholder:'Email'                
-            },
-            {
-                id:'tel',
-                type:'text',
-                placeholder:'Tel'                
-            }
-        ]
     }
     createInputs(data){
         
@@ -61,7 +20,7 @@ class Form extends Component {
                 input = this.creteSelect(data)
                 break;                
             default:
-                input =  <div className="form-group"><input type={data.type} placeholder={data.placeholder} id={data.id} /></div>
+                input =  <div className="form-group"><input type={data.type} placeholder={data.placeholder} id={data.id} onChange={this.onChangeInput.bind()}/></div>
                 break;
         }
 
@@ -80,6 +39,10 @@ class Form extends Component {
                 <select>{ data.inputs.map((item) => (<option>{ item.label }</option>)) }</select>
             </div>
         )
+    }
+    onChangeInput(event){
+        console.log('event ', event.target.value)
+        //this.props.onSubmitStep(this)
     }
 
     render() {
