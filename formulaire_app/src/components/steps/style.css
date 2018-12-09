@@ -7,3 +7,10 @@
 .active {
     display: block;
 }
+.rec {
+    display: none;
+}
+
+.rec.active{
+    display: block;
+}

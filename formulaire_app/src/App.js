@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Form from './components/form/';
 import Steps from './components/steps/';
 import './App.css';
 
@@ -8,7 +7,12 @@ class App extends Component {
     super(props)
     this.state = {
       courant: 0,
-      list: []
+      civilite: '',
+      prenom: '',
+      nom: '',
+      email: '',
+      tel: '',
+      framework: ''
     }
     this.data = [
           {
@@ -68,15 +72,18 @@ class App extends Component {
                   inputs : [
                       {
                           label : 'Vue',
-                          name: 'vue'
+                          name: 'framework',
+                          value: 'vue'
                       },
                       {
                           label : 'Angular',
-                          name: 'angular'
+                          name: 'framework',
+                          value: 'angular'
                       },
                       {
                           label : 'Symfony',
-                          name: 'symfony'
+                          name: 'framework',
+                          value: 'symfony'
                       }
                   ]
               },
@@ -95,9 +102,28 @@ class App extends Component {
   }
   
   next(){
+    const form_1 = this.refs.page_1;   
+  
+    if(form_1){
+      this.setState({        
+        prenom: form_1.refs.prenom.value ,
+        nom: form_1.refs.nom.value,
+        email: form_1.refs.email.value,
+        tel: form_1.refs.tel.value
+      })
+    }
+    
+    let framework = this.refs.page_2.refs.framework.querySelector('input[name=framework]:checked');
+    if(framework){
+      this.setState({
+        framework: framework.value
+      })
+    }
+
     this.setState({
       courant: this.state.courant + 1
     })
+    
   }
  
   back(){
@@ -108,8 +134,8 @@ class App extends Component {
 
   render() {
    
-
-    let step = this.data.map((item, index) => <Steps page={index} courant={this.state.courant} data={item} />)
+    console.log('list home >> : ', this.state)
+    let step = this.data.map((item, index) => <Steps page={index} ref={'page_'+index} courant={this.state.courant} data={item} list={this.state.list} rec={this.state} />)
    
     console.log('refs : ', this.refs.step_1)
     return (
