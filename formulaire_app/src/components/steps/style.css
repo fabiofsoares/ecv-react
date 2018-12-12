@@ -1,16 +1,43 @@
-.steps {
-    border: 1px solid #000;
-    width: 300px;
-    margin: 0 auto;
+h1 {
+    padding-top: 50px;
+    color: #FF7E00;
+    font-size: 50px;
+}
+h2 {
+
+}
+
+.steps {    
+    max-width: 600px;
+    min-height: 500px;
+    margin: 50px auto 0;
     display: none;
+    background-color: #FBFFFE;
+    box-shadow: 2px 2px 12px #c6c6c6;
 }
 .active {
     display: block;
 }
+
 .rec {
     display: none;
 }
 
 .rec.active{
     display: block;
+}
+
+select {
+    height: 50px;
+    width: 63%;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;    
+    margin: 5px 0;
+}
+input[type="text"], input[type="email"]{
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    padding: 15px 10px;
+    width: 60%;
+    margin: 5px 0;
 }

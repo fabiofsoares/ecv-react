@@ -62,8 +62,11 @@ class Steps extends Component {
         
         return (
             <div className={ this.props.courant === this.props.page ? 'active steps' :'steps'}>
+                
                 <h1>PAGE { this.props.page }</h1>
+                
                 <h2>{ this.props.data.title }</h2>
+
                 <div className="form">
                     <div className="form-containt">
                         { this.props.data.form && this.props.data.form.map((item) => this.createInputs(item)) }

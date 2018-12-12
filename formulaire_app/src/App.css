@@ -1,3 +1,24 @@
 .App {
   text-align: center;
 }
+
+body {
+  background-color: #F3F4F4;
+  font-family: 'arial', sans-serif;
+  color: #555861;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 5px 20px;
+  color: #FBFFFE;
+  background-color: #FF7E00;
+  font-size: 18px;
+  margin: 0 20px;
+  cursor: pointer;
+
+}
+.container-buttons {
+  margin-top: 30px;
+}

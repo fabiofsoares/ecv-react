@@ -114,6 +114,7 @@ class App extends Component {
     }
     
     let framework = this.refs.page_2.refs.framework.querySelector('input[name=framework]:checked');
+    
     if(framework){
       this.setState({
         framework: framework.value
@@ -133,16 +134,19 @@ class App extends Component {
   }
 
   render() {
-   
-    console.log('list home >> : ', this.state)
+    
     let step = this.data.map((item, index) => <Steps page={index} ref={'page_'+index} courant={this.state.courant} data={item} list={this.state.list} rec={this.state} />)
    
-    console.log('refs : ', this.refs.step_1)
     return (
       <div className="App">
+        
         { step }
-        <button onClick={this.back.bind(this)} disabled={this.state.courant < 1 ? true : false}>BACK</button>
-        <button onClick={this.next.bind(this)} disabled={this.state.courant >= 3 ? true : false}>NEXT</button>
+        
+        <div className="container-buttons">
+          <button onClick={this.back.bind(this)} disabled={this.state.courant < 1 ? true : false}>BACK</button>
+          <button onClick={this.next.bind(this)} disabled={this.state.courant >= 3 ? true : false}>NEXT</button>
+        </div>
+        
       </div>
     );
   }
